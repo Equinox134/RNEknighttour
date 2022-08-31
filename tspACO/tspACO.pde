@@ -47,6 +47,6 @@ void keyPressed(){
   if(keyCode == ENTER){
     ac = !ac;
     graph = new Graph(points);
-    aco = new AntColonyOpt(graph,10);
+    aco = new AntColonyOpt(graph,20,1,4,20,0.3);
   }
 }

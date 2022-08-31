@@ -73,10 +73,13 @@ class AntColonyOpt{
         totd += graph.length(ant.path.get(j),ant.path.get(nj));
       }
       //if(totd==0) print(ant.path+" "+i+" "+startLoc.get(i)+"\n");
-      if(totd<minlength) shortPath = ant.path;
+      if(totd<minlength){
+        shortPath = ant.path;
+        minlength = totd;
+      }
       for(int j=0;j<cnt;j++){
         int nj = (j+1)%cnt;
-        graph.changePh(j,nj,Q/totd);
+        graph.changePh(ant.path.get(j),ant.path.get(nj),Q/totd);
       }
     }
     reset();
@@ -93,7 +96,7 @@ class AntColonyOpt{
         //print(ph+"\n");
         //print(constrain(ph,10,255)+"\n");
         strokeWeight(6);
-        stroke(0,255,0,constrain(ph,10,255));
+        stroke(0,255,0,constrain(ph,0.05,2)*127);
         line(x1,y1,x2,y2);
       }
     }
@@ -137,6 +140,8 @@ class AntColonyOpt{
       //print(rnd+"\n");
       rnd -= p.get(i);
     }
+    //print(sum+"\n");
+    if(sum == 0) return can.get(0);
     //print(rnd+"\n");
     //print("asdasdasd\n");
     return 0;
@@ -156,7 +161,7 @@ class AntColonyOpt{
   float calcChance(int i, int j){
     float dist = graph.length(i,j);
     float pher = graph.getPh(i,j);
-    float top = pow(pher,alpha)*pow(dist,beta);
+    float top = pow(pher,alpha)*pow(1/dist,beta);
     //print(top + "\n");
     return top;
   }
@@ -167,6 +172,6 @@ class AntColonyOpt{
       return 0;
     }
     FloatList tmp = chance.get(i);
-    return tmp.get(j);
+    return tmp.get(j)*9999999;
   }
 }
