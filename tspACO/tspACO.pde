@@ -3,10 +3,13 @@ Graph graph;
 AntColonyOpt aco;
 
 boolean ac = false;
-int iter=0, imax=10000;
+int iter=0, imax=10000, numAnt=0;
+float minl=1000000;
+int antNum=20;
+float phW=1, dW=4, phS=30, ec=0.3;
 
 void setup(){
-  size(2000,1000);
+  size(2000,1100);
   background(255,255,255);
 }
 
@@ -21,10 +24,25 @@ void draw(){
     aco.drawPh(0,0);
     aco.drawSh(1000,0);
     iter++;
+    numAnt += 20;
+    minl = min(minl,aco.minlength);
   }
   stroke(0,0,0,255);
   strokeWeight(6);
-  line(1000,0,1000,1000);
+  line(1000,0,1000,1200);
+  fill(0);
+  textSize(70);
+  text("Pheromone Map",20,70);
+  text("Current Shortest Path",1020,70);
+  textSize(50);
+  text("# of Ants: " + numAnt,20,130);
+  text("# of Iterations: " + iter,20,180);
+  text("Current Minimum Distance: " + minl,1020,130);
+  textSize(30);
+  text("phW: "+phW,20,1080);
+  text("distW: "+dW,170,1080);
+  text("phS: "+phS,320,1080);
+  text("ec: "+ec,470,1080);
   //if(iter>=imax&&ac) ac = !ac;
   //delay(100);
 }
@@ -45,8 +63,10 @@ void mousePressed(){
 
 void keyPressed(){
   if(keyCode == ENTER){
+    numAnt=0;
+    iter=0;
     ac = !ac;
     graph = new Graph(points);
-    aco = new AntColonyOpt(graph,20,1,4,20,0.3);
+    aco = new AntColonyOpt(graph,antNum,phW,dW,phS,ec);
   }
 }
