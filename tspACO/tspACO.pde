@@ -69,4 +69,7 @@ void keyPressed(){
     graph = new Graph(points);
     aco = new AntColonyOpt(graph,antNum,phW,dW,phS,ec);
   }
+  if(key=='r'){
+    points = new ArrayList<Point>();
+  }
 }
