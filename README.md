@@ -20,8 +20,8 @@ Controls:
 * the r key clears the screen
 
 Value meanings:
-* #  of Ants: the number of ants that have been sent
-* #  of Iterations: the number of iterations the program has done
+* \# of Ants: the number of ants that have been sent
+* \# of Iterations: the number of iterations the program has done
 * Current Minimum Distance: the distance of the shortest path that has been found
 * phW: the weight of the pheromone when an ant choses a path
 * distW: the weight of the distance when an ant choses a path
