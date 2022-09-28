@@ -182,9 +182,6 @@ void solve(int r, bool print) {
             Ant ant = Ant(n * m);
             ant.move(sx * m + sy);
             iterate(ant);
-            if (done) {
-                break;
-            }
         }
         iter++;
         cout << "Iteration: " << iter << "\r";
