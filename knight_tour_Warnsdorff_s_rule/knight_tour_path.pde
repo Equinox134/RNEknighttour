@@ -7,6 +7,7 @@ final int BoardX = 100;
 final int BoardY = 100;
 final int BLOCKX = HEIGHT / BoardX;
 final int BLOCKY = WIDTH / BoardY;
+final int X=1,Y=1;
  
 boolean start = true;
 int value, trueCnt=0, falseCnt=0;
@@ -28,8 +29,8 @@ void setup() {
     }
   }
   
-  knightX=((int)random(HEIGHT)/BLOCKX);
-  knightY=((int)random(WIDTH)/BLOCKY);
+  knightX=min(X,HEIGHT/BLOCKX);
+  knightY=min(Y,WIDTH/BLOCKY);
   chessBoard[knightX][knightY]=1;
   fill(0,255,0);
   rect(knightX*(BLOCKX),knightY*(BLOCKY),BLOCKX,BLOCKY);
@@ -85,8 +86,4 @@ void draw()
     fill(255, 0, 0);
     rect(knightX*(BLOCKX),knightY*(BLOCKY),BLOCKX,BLOCKY);
   }
-  
-    
-    
-  
 }
