@@ -1,0 +1,4 @@
+﻿  aco.cpp
+D:\SH\gshs\research\1-2\codes\ktaco\aco\aco.cpp(107,17): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+D:\SH\gshs\research\1-2\codes\ktaco\aco\aco.cpp(86): warning C4715: 'ChoosePath': not all control paths return a value
+  aco.vcxproj -> D:\SH\gshs\research\1-2\codes\ktaco\aco\x64\Debug\aco.exe
