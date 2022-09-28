@@ -27,3 +27,21 @@ Value meanings:
 * distW: the weight of the distance when an ant choses a path
 * phS: how much pheromone is being placed for one ant
 * ec: how much pheromone is evaporated for each iteration
+
+### knight_tour_Warnsdorff_s_rule
+
+knight_tour_path.pde in this folder is a processing script for visualizing the knights tour using Warnsdorff's rule. The chessboard isn't perfect. 
+You must change the variables inside the script to change parameters.
+
+Important Variables:
+* BoardX and BoardY are the horizontal and vertical length of the board
+* X and Y are the starting position of the knight tour
+
+knight_tour_Warnsdorff_s_rule.pde in this folder is a processing script for calculating the success rate of Warnsdorff's rule. This is not finished.
+
+### Knight_Tour_ACO
+
+These are C++ scripts for finding the knight tour in various ways:
+* aco.cpp: using ant colony optimization w/ Warnsdorff's rule as a paths desirability
+* acowarnsdorff.cpp: using Warnsdorff's rule with ACO pheromone as a tiebreaker
+* warnsdorff.cpp: using Warnsdorff's rule only
